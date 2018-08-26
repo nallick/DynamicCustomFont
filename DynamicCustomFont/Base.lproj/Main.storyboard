@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CustomFont" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksr-24-0gH">
+                                <rect key="frame" x="161" y="140" width="53.5" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoQ-ML-jH1">
+                                <rect key="frame" x="146" y="200.5" width="83" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE6-Vr-dJE">
+                                <rect key="frame" x="20" y="292.5" width="335" height="81.5"/>
+                                <string key="text">I have great respect for the semicolon;
+it is a mighty handy little fellow.
+
+— Abraham Lincoln</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KE6-Vr-dJE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1qj-AG-7EO"/>
+                            <constraint firstItem="Ksr-24-0gH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4ud-31-ayL"/>
+                            <constraint firstItem="OoQ-ML-jH1" firstAttribute="bottom" secondItem="Ksr-24-0gH" secondAttribute="bottom" constant="72" id="52A-2O-vdR"/>
+                            <constraint firstItem="OoQ-ML-jH1" firstAttribute="centerX" secondItem="Ksr-24-0gH" secondAttribute="centerX" id="53p-ni-zmc"/>
+                            <constraint firstItem="KE6-Vr-dJE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="OJs-VM-gbi"/>
+                            <constraint firstItem="Ksr-24-0gH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="UqM-Gy-kmz"/>
+                            <constraint firstItem="KE6-Vr-dJE" firstAttribute="top" secondItem="OoQ-ML-jH1" secondAttribute="top" constant="92" id="z8X-2J-yx8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="attributedLabel" destination="KE6-Vr-dJE" id="KX5-Fh-C8J"/>
+                        <outletCollection property="labels" destination="Ksr-24-0gH" collectionClass="NSMutableArray" id="YsI-Ct-ezJ"/>
+                        <outletCollection property="labels" destination="OoQ-ML-jH1" collectionClass="NSMutableArray" id="uc6-aO-bmO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
