@@ -22,14 +22,14 @@ public struct DynamicFont
         self.baseStyleTable = styleTable
     }
 
-    public func font(forTextStyle style: UIFontTextStyle, otherwise fallback: UIFont? = nil) -> UIFont {
+    public func font(forTextStyle style: UIFont.TextStyle, otherwise fallback: UIFont? = nil) -> UIFont {
         guard let baseStyle = self.baseStyleTable[style.rawValue],
             let baseFont = UIFont(name: baseStyle.name, size: CGFloat(baseStyle.size))
             else { return fallback ?? UIFont.preferredFont(forTextStyle: style) }
         return UIFontMetrics(forTextStyle: style).scaledFont(for: baseFont)
     }
 
-    public func scale(forTextStyle style: UIFontTextStyle = .body) -> CGFloat {
+    public func scale(forTextStyle style: UIFont.TextStyle = .body) -> CGFloat {
         guard let baseStyle = self.baseStyleTable[style.rawValue],
             let baseFont = UIFont(name: baseStyle.name, size: CGFloat(baseStyle.size))
             else { return 1.0 }
@@ -42,7 +42,7 @@ public struct DynamicFont
         let size: Int
     }
 
-    private typealias BaseStyleTable = [UIFontTextStyle.RawValue: BaseStyle]
+    private typealias BaseStyleTable = [UIFont.TextStyle.RawValue: BaseStyle]
 
     private let baseStyleTable: BaseStyleTable
 }
@@ -67,8 +67,8 @@ public extension DynamicFont
 
 public extension UIFont
 {
-    public var textStyle: UIFontTextStyle {
-        return self.fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.textStyle) as? UIFontTextStyle ?? .none
+	public var textStyle: UIFont.TextStyle {
+		return self.fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.textStyle) as? UIFont.TextStyle ?? .none
     }
 
     public var isDynamic: Bool {
@@ -76,9 +76,9 @@ public extension UIFont
     }
 }
 
-public extension UIFontTextStyle
+public extension UIFont.TextStyle
 {
-	public static let none = UIFontTextStyle(rawValue: "none")
+	public static let none = UIFont.TextStyle(rawValue: "none")
 
     public var isDynamic: Bool {
         return self == .body || self == .callout || self == .caption1 || self == .caption2 || self == .footnote || self == .headline || self == .subheadline || self == .largeTitle || self == .title1 || self == .title2 || self == .title3

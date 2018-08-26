@@ -30,7 +30,7 @@ class ViewController: UIViewController
         DynamicFont.optima.matchAll(self.labels)
 		self.setAttributedLabelText()
 
-		NotificationCenter.default.addObserver(self, selector: #selector(contentSizeCategoryDidChange), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(contentSizeCategoryDidChange), name: UIContentSizeCategory.didChangeNotification, object: nil)
     }
 
 	@objc private func contentSizeCategoryDidChange(_ notification: Notification) {

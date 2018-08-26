@@ -31,10 +31,10 @@ public extension NSMutableAttributedString
 
         self.beginEditing()
 
-        self.enumerateAttribute(NSAttributedStringKey.font, in: NSRange(location: 0, length: self.length)) { value, range, _ in
+		self.enumerateAttribute(NSAttributedString.Key.font, in: NSRange(location: 0, length: self.length)) { value, range, _ in
             if let baseFont = value as? UIFont {
                 let scaledFont = baseFont.withSize(baseFont.pointSize*scale)
-                self.addAttribute(NSAttributedStringKey.font, value: scaledFont, range: range)
+                self.addAttribute(NSAttributedString.Key.font, value: scaledFont, range: range)
             }
         }
 
