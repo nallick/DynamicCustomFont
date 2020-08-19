@@ -1,7 +1,7 @@
 //
 //  DynamicFont.swift
 //
-//  Copyright © 2018 Purgatory Design. Licensed under the MIT License.
+//  Copyright © 2018, 2020 Purgatory Design. Licensed under the MIT License.
 //
 //	For creating a UIFontTextStyle dictionary from a plist see:
 //		https://useyourloaf.com/blog/using-a-custom-font-with-dynamic-type/
@@ -49,38 +49,53 @@ public struct DynamicFont
 
 public extension DynamicFont
 {
-    public func match(font matchFont: UIFont) -> UIFont {
+    func match(font matchFont: UIFont) -> UIFont {
         let matchStyle = matchFont.textStyle
         guard matchStyle.isDynamic else { return matchFont }
         return self.font(forTextStyle: matchStyle, otherwise: matchFont)
     }
 
-    public func matchAll(_ items: [AnyObject]) {
+	func match(container: inout FontContainer) {
+		guard let font = container.containedFont else { return }
+		let matchedFont = self.match(font: font)
+		container.containedFont = matchedFont
+	}
+
+	func match(view: UIView) {
+		if var fontContainer = view as? FontContainer {
+			self.match(container: &fontContainer)
+		}
+
+		for subview in view.subviews {
+			self.match(view: subview)
+		}
+	}
+
+    func matchAll(_ items: [AnyObject]) {
         for item in items {
-            if let font = item.value(forKey: "font") as? UIFont {
-                let matchedFont = self.match(font: font)
-                item.setValue(matchedFont, forKey: "font")
-            }
+			if var fontContainer = item as? FontContainer {
+				self.match(container: &fontContainer)
+			}
         }
     }
 }
 
 public extension UIFont
 {
-	public var textStyle: UIFont.TextStyle {
+	var textStyle: UIFont.TextStyle {
 		return self.fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.textStyle) as? UIFont.TextStyle ?? .none
     }
 
-    public var isDynamic: Bool {
+    var isDynamic: Bool {
         return self.textStyle.isDynamic
     }
 }
 
 public extension UIFont.TextStyle
 {
-	public static let none = UIFont.TextStyle(rawValue: "none")
+	static let none = UIFont.TextStyle(rawValue: "none")
 
-    public var isDynamic: Bool {
+    var isDynamic: Bool {
         return self == .body || self == .callout || self == .caption1 || self == .caption2 || self == .footnote || self == .headline || self == .subheadline || self == .largeTitle || self == .title1 || self == .title2 || self == .title3
     }
 }

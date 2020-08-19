@@ -16,6 +16,7 @@
 		01119B482132FFC700815402 /* DynamicAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01119B462132FFC700815402 /* DynamicAttributedString.swift */; };
 		01119B4B2132FFDF00815402 /* Optima.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01119B492132FFDF00815402 /* Optima.plist */; };
 		01119B4C2132FFDF00815402 /* Lincoln.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 01119B4A2132FFDF00815402 /* Lincoln.rtf */; };
+		0135E0CF24ECA622000D277C /* FontContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135E0CE24ECA622000D277C /* FontContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		01119B462132FFC700815402 /* DynamicAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicAttributedString.swift; sourceTree = SOURCE_ROOT; };
 		01119B492132FFDF00815402 /* Optima.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Optima.plist; sourceTree = "<group>"; };
 		01119B4A2132FFDF00815402 /* Lincoln.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Lincoln.rtf; sourceTree = "<group>"; };
+		0135E0CE24ECA622000D277C /* FontContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontContainer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				01119B332132FE5900815402 /* AppDelegate.swift */,
 				01119B462132FFC700815402 /* DynamicAttributedString.swift */,
 				01119B452132FFC700815402 /* DynamicFont.swift */,
+				0135E0CE24ECA622000D277C /* FontContainer.swift */,
 				01119B352132FE5900815402 /* ViewController.swift */,
 				01119B3A2132FE5B00815402 /* Assets.xcassets */,
 				01119B3C2132FE5B00815402 /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			files = (
 				01119B482132FFC700815402 /* DynamicAttributedString.swift in Sources */,
 				01119B362132FE5900815402 /* ViewController.swift in Sources */,
+				0135E0CF24ECA622000D277C /* FontContainer.swift in Sources */,
 				01119B472132FFC700815402 /* DynamicFont.swift in Sources */,
 				01119B342132FE5900815402 /* AppDelegate.swift in Sources */,
 			);
@@ -236,6 +240,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -290,6 +295,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -307,7 +313,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.PurgatoryDesign.DynamicCustomFont;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -325,7 +330,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.PurgatoryDesign.DynamicCustomFont;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

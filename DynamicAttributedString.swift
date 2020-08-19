@@ -1,20 +1,20 @@
 //
 //  DynamicAttributedString.swift
 //
-//  Copyright © 2018 Purgatory Design. Licensed under the MIT License.
+//  Copyright © 2018, 2020 Purgatory Design. Licensed under the MIT License.
 //
 
 import UIKit
 
 public extension NSAttributedString
 {
-    public convenience init(fromResource name: String, withExtension: String = "rtf", documentType: DocumentType = .rtf, bundle: Bundle = Bundle.main) throws {
+	convenience init(fromResource name: String, withExtension: String = "rtf", documentType: DocumentType = .rtf, bundle: Bundle = Bundle.main) throws {
         guard let url = bundle.url(forResource: name, withExtension: withExtension) else { throw NSError(domain: "File Not Found", code: NSFileNoSuchFileError, userInfo: nil) }
         let data = try Data(contentsOf: url)
         try self.init(data: data, options: [DocumentReadingOptionKey.documentType: documentType], documentAttributes: nil)
     }
 
-    public func scaledFonts(by scale: CGFloat, mutable: Bool = false) -> NSAttributedString {
+    func scaledFonts(by scale: CGFloat, mutable: Bool = false) -> NSAttributedString {
         guard scale != 1.0 else { return mutable ? NSMutableAttributedString(attributedString: self) : NSAttributedString(attributedString: self) }
 
         let result = NSMutableAttributedString(attributedString: self)
@@ -26,7 +26,7 @@ public extension NSAttributedString
 
 public extension NSMutableAttributedString
 {
-    public func scaleFonts(by scale: CGFloat) {
+    func scaleFonts(by scale: CGFloat) {
         guard scale != 1.0 else { return }
 
         self.beginEditing()
